@@ -5,6 +5,12 @@ This is a simple Flask application with a sqlite database created for the purpos
 It is not intended to be used in any production environment.  Users may use a GET request from url localhost:5000/car/{record id} or run
 make a post request at url localhost:5000/car/post.  Input should be in JSON format and include model, year, color, and license_plate'
 
+Example:
+{"model":"toyota",
+"color":"red",
+"year":"2001",
+"license_plate":"ab312"}
+
 ## Requirements
 * Python 3.x
 * Flask
