@@ -15,7 +15,8 @@ Example:
 * Python 3.x
 * Flask
 * SQLAlchemy 
-* SQLite browser Recommended 
+* SQLite browser Recommended
+* Postman, cURL or some other way to get/post
 
 ## Instructions
 1.  Install Python 3.x
