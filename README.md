@@ -22,7 +22,7 @@ Example:
 1.  Install Python 3.x
 2.  Create a new python virtual environment (not required but recommended)  <https://docs.python.org/3/library/venv.html> 
 3. clone this repository 
-4.  Activate your venv install requirements
+4.  Activate your venv and install requirements
 5.  Execute database_setup.py to create the database
 6.  When you execute project.py you will be running a webserver at port 5000.  
 ``` Warning: Running project.py will start a web server on your computer ```
