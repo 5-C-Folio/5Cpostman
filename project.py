@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, jsonify
+from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 from sqlalchemy import create_engine, asc
@@ -25,8 +25,7 @@ def post_new():
         session.add(new_car)
         session.commit()
         return "201, OK"
-        session.commit()
-        return "201, OK"
+
 
 if __name__ == '__main__':
   app.secret_key = 'super_secret_key'
