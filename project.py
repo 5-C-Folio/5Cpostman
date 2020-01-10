@@ -11,13 +11,29 @@ Base.metadata.bind = engine
 DBsession = sessionmaker(bind = engine)
 session = DBsession()
 
-@app.route('/car/<int:id>')
+@app.route('/car/<int:id>', methods = ['GET','PUT'])
 def get_car(id):
-    car = session.query(Car).filter_by(id = id).one()
-    return jsonify(Car_result = car.serialize)
+    if request.method == 'GET':
+        car = session.query(Car).filter_by(id = id).one()
+        return jsonify(Car_result = car.serialize)
+    if request.method == 'PUT':
+        car = session.query(Car).filter_by(id=id).one()
+        for key, values in request.json.items():
+            if key == "model":
+                car.model = values
+            if key == "color":
+                car.color = values
+            if key == "year":
+                car.year = values
+            if key == "license_plate":
+                car.license_plate = values
+        session.add(car)
+        session.commit()
+        return jsonify(car = car.serialize)
 
 
-@app.route('/car/post', methods = ['GET', 'POST'])
+
+@app.route('/car/post', methods = ['POST'])
 def post_new():
     if request.method == 'POST':
         new_car = Car(model = request.json["model"], color = request.json["color"],
